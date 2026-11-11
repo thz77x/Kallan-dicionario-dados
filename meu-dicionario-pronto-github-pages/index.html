@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicionário de Dados Interativo - Kallan Calçados</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-area">
+            <i class="fa-solid fa-database"></i>
+            <h1>Dicionário de Dados - Kallan Calçados</h1>
+        </div>
+        <div class="header-actions">
+            <button id="download-doc-btn" class="btn-primary">
+                <i class="fa-solid fa-file-arrow-down"></i> Baixar Requisitos
+            </button>
+            <button id="open-der-modal" class="btn-secondary">
+                <i class="fa-solid fa-project-diagram"></i> Visualizar DER
+            </button>
+            <button id="theme-toggle" class="btn-secondary" aria-label="Alternar modo claro/escuro" title="Alternar modo claro/escuro">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="identificacao" class="intro-card">
+            <h2>Identificação do Projeto</h2>
+            <dl class="ident">
+                <dt>Escopo</dt>
+                <dd>Modelagem relacional de um sistema acadêmico de gestão operacional e vendas para o varejo de calçados da Kallan Calçados, cobrindo cadastro de clientes e usuários, catálogo de produtos e variações (SKU, tamanho, cor), controle de estoque, vendas, cancelamentos e estornos, histórico de preços, trilha de auditoria e atendimento a solicitações de titulares conforme a LGPD.</dd>
+                <dt>Tecnologia</dt>
+                <dd>MySQL (InnoDB) - script DDL gerado pelo MySQL Workbench.</dd>
+                <dt>Instituição</dt>
+                <dd>Universidade Cidade de São Paulo (UNICID) - Disciplina de Banco de Dados - Prof. Dr. Diego Carvalho.</dd>
+                <dt>Responsáveis</dt>
+                <dd>
+                    <p><strong>Grupo 5</strong></p>
+                    <ul class="team">
+                        <li>Arthur Caferro Saldanha (RGM 47659432) - Data Owner (Regras de Negócio e representação do cliente)</li>
+                        <li>Sander Lima Alves (RGM 47673621) - Data Owner (Coordenação e decisões gerais sobre os dados)</li>
+                        <li>Lucas Victor Soares de Gois (RGM 47254122) - Data Steward (Levantamento e organização dos requisitos).</li>
+                        <li>Matheus Augusto Assunção Novaes (RGM 47714638) -  Data Steward (Modelagem e estruturação do banco de dados).</li>
+                        <li>Paulo Gabriel Kiyoshi Inazawa (RGM 47495880) - Data Steward (Implementação SQL e integridade dos dados).</li>
+                        <li>Guilherme de Bastos Santana (RGM 47772115) - Data Steward (Qualidade, validação e documentação dos dados).</li>
+                    </ul>
+                </dd>
+            </dl>
+        </section>
+
+        <section class="intro-card">
+            <h2>Governança e Data Literacy</h2>
+            <p>Este dicionário é o ponto único de consulta sobre o significado, a origem, a sensibilidade e o acesso de cada dado do sistema. Alinhado ao DAMA-DMBOK (metadados, qualidade e privacidade) e ao COBIT (controle, auditoria e responsabilização), ele apoia a integridade transacional de vendas e estoque, a rastreabilidade por auditoria e a conformidade com a LGPD (Lei nº 13.709/2018).</p>
+            <div class="legend">
+                <span class="legend-badge dps">DPS</span> Dado pessoal sensível
+                <span class="legend-badge dp">DP</span> Dado pessoal
+                <span class="legend-badge na">N/A</span> Não aplicável
+            </div>
+        </section>
+
+        <div class="search-container">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" id="search-input" placeholder="Pesquisar tabela (ex: cliente, venda, produto)...">
+        </div>
+
+        <div id="tables-container" class="tables-grid"></div>
+    </main>
+
+    <div id="der-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Diagrama Entidade-Relacionamento (DER)</h3>
+                <button id="close-modal" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="der-controls">
+                    <button id="zoom-in"><i class="fa-solid fa-magnifying-glass-plus"></i> Zoom +</button>
+                    <button id="zoom-out"><i class="fa-solid fa-magnifying-glass-minus"></i> Zoom -</button>
+                    <button id="reset-zoom"><i class="fa-solid fa-rotate"></i> Redefinir</button>
+                </div>
+                <div id="der-viewport">
+                    <img id="der-image" src="assets/der.jpg" alt="Diagrama Entidade-Relacionamento">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Kallan Calçados - Grupo 5 | UNICID Análise e Desenvolvimento de Sistemas</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
