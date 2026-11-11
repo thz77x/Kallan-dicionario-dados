@@ -42,6 +42,15 @@ O dicionário de dados é o ponto único de consulta sobre o significado, a orig
 | Recurso | Descrição |
 | --- | --- |
 | 📋 **Identificação do projeto** | Escopo, tecnologia, instituição e responsáveis |
+| 🗂️ **16 tabelas documentadas** | Cada coluna traz descrição, tipo, chave (PK/FK/UQ), nulidade, classificação LGPD, linhagem e perfis de acesso (RBAC) |
+| 🔍 **Busca em tempo real** | Filtra tabelas e campos enquanto você digita |
+| 🧭 **DER interativo** | Modal com o diagrama, zoom por botões (+ / −) ou scroll do mouse, arraste e redefinição (Panzoom.js) |
+| 📥 **Download de Requisitos** | Especificação de requisitos e regras de negócio em PDF, direto na página |
+| 🏷️ **Classificação LGPD** | **DPS** (dado pessoal sensível), **DP** (dado pessoal) e **N/A** (não aplicável) |
+| ⚖️ **Governança** | Alinhado ao **DAMA-DMBOK** (metadados, qualidade e privacidade) e ao **COBIT** (controle, auditoria e responsabilização) |
+
+--- | --- |
+| 📋 **Identificação do projeto** | Escopo, tecnologia, instituição e responsáveis |
 | 🧭 **DER interativo** | Diagrama Entidade-Relacionamento com botões de zoom (+ / −) e redefinição |
 | 📥 **Download de Requisitos** | Documento de requisitos disponível direto na página |
 | 🏷️ **Classificação LGPD** | Legenda de sensibilidade: **DPS** (dado pessoal sensível), **DP** (dado pessoal) e **N/A** (não aplicável) |
@@ -69,13 +78,17 @@ O dicionário de dados é o ponto único de consulta sobre o significado, a orig
 
 ```text
 Kallan-dicionario-dados/
-├── meu-dicionario-pronto-github-pages/   # Site do dicionário de dados
-│   ├── index.html
-│   └── assets/                           # style.css, script.js, der.jpg...
+├── .github/workflows/
+│   └── static.yml        # Deploy automático no GitHub Pages
+├── assets/
+│   └── der.jpg           # Diagrama Entidade-Relacionamento
+├── docs/
+│   └── Especificacao_Requisitos_Regras_Negocio_BD.pdf
+├── index.html            # Página do dicionário
+├── script.js             # Dados das tabelas, busca e modal do DER
+├── style.css             # Estilos
 └── README.md
 ```
-
-> ⚠️ Ajuste esta árvore para refletir exatamente os arquivos do seu repositório.
 
 ---
 
@@ -89,8 +102,8 @@ Kallan-dicionario-dados/
 # 1. Clone o repositório
 git clone https://github.com/thz77x/Kallan-dicionario-dados.git
 
-# 2. Entre na pasta do site
-cd Kallan-dicionario-dados/meu-dicionario-pronto-github-pages
+# 2. Entre na pasta do projeto
+cd Kallan-dicionario-dados
 
 # 3. Abra o index.html no navegador
 #    (ou use a extensão Live Server do VS Code)
@@ -102,7 +115,8 @@ cd Kallan-dicionario-dados/meu-dicionario-pronto-github-pages
 
 - **MySQL / MySQL Workbench** — modelagem e script DDL
 - **HTML5, CSS3 e JavaScript** — interface do dicionário
-- **GitHub Pages** — publicação do site
+- **Panzoom.js** — zoom e navegação no DER
+- **GitHub Actions + GitHub Pages** — publicação automática a cada push na `main`
 
 ---
 
